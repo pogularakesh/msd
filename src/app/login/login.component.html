@@ -1,0 +1,30 @@
+<h4> <marquee > @ Login Page @ </marquee> </h4>
+<hr/>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-6">
+      <form #frm="ngForm"  >
+        <div class="form-group">
+          User Id: 
+          <input type="text" #userid="ngModel" [(ngModel)]="user.userid" name="userid" class="form-control"
+          required />
+          <span *ngIf="userid.errors && (userid.touched || userid.dirty)" style="color: red">
+            <span [hidden]="!userid.errors.required"> Enter User Id </span>
+          </span>
+        </div>
+        <div class="form-group">
+          Password: 
+          <input type="text" #password="ngModel" [(ngModel)]="user.password" name="password" class="form-control" 
+          required />
+          <span *ngIf="password.errors && (password.touched || password.dirty)" style="color: red">
+            <span [hidden]="!password.errors.required"> Enter Password </span>
+          </span>
+        </div>
+        <div class="form-group" align="center ">
+          <input type="submit" (click)="loginform(userid,password,frm)" class="btn btn-info"  value="Login">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
